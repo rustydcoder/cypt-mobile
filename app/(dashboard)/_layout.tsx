@@ -17,6 +17,8 @@ const DashboardLayout = () => {
           backgroundColor: navBackground,
           paddingTop: 10,
           height: 90,
+          borderTopWidth: 1,
+          borderTopColor: tabIconDefault,
         },
         tabBarActiveTintColor: tabIconSelected,
         tabBarInactiveTintColor: tabIconDefault,
