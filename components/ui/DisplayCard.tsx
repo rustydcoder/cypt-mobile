@@ -20,7 +20,7 @@ export default DisplayCard;
 const styles = StyleSheet.create({
   card: {
     width: "100%",
-    minHeight: 200,
+    minHeight: 150,
     backgroundColor: Colors.primary,
     borderRadius: 10,
     paddingHorizontal: 20,

@@ -42,6 +42,18 @@ const DashboardLayout = () => {
         name="cards"
         options={{
           title: "Cards",
+          headerTitle: "Cards Details",
+          headerShown: true,
+          headerStyle: {
+            elevation: 0,
+            shadowOpacity: 0,
+            borderBottomWidth: 0,
+          },
+          headerTitleStyle: {
+            fontSize: 30,
+            fontWeight: "800",
+            color: "#00C853",
+          },
           tabBarIcon: ({ focused }) => (
             <Ionicons
               size={24}

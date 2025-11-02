@@ -1,12 +1,9 @@
+import CardScreen from "@/components/Card/CardScreen";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 
 const cards = () => {
-  return (
-    <View>
-      <Text>cards</Text>
-    </View>
-  );
+  return <CardScreen />;
 };
 
 export default cards;
