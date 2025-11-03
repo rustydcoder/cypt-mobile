@@ -30,7 +30,7 @@ export const accountInfo = [
   {
     id: "2",
     title: "Hide Balance",
-    icon: "eye-off-sharp",
+    icon: "balance",
   },
   {
     id: "3",

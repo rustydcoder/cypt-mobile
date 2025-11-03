@@ -1,41 +1,47 @@
 import { ThemedText } from "@/app-example/components/ThemedText";
 import { FontAwesome, Ionicons, MaterialIcons } from "@expo/vector-icons";
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 import DisplayCard from "../ui/DisplayCard";
 import { accountInfo } from "./data";
 
-const AccountInfo = () => {
-  const renderItem = ({ item }: { item: { title: string; icon?: string } }) => {
-    let iconComponent: React.ReactNode;
-    switch (item.icon) {
-      case "bank":
-        iconComponent = (
-          <FontAwesome name={item.icon} size={24} color="white" />
-        );
-        break;
-      case "savings":
-        iconComponent = (
-          <MaterialIcons name={item.icon} size={24} color="white" />
-        );
-        break;
-      default:
-        iconComponent = (
-          <Ionicons name="eye-off-sharp" size={24} color="white" />
-        );
-        break;
-    }
+const IconComponent = ({ icon, hide }: { icon?: string; hide?: boolean }) => {
+  switch (icon) {
+    case "bank":
+      return <FontAwesome name={icon} size={24} color="white" />;
+    case "savings":
+      return <MaterialIcons name={icon} size={24} color="white" />;
+    default:
+      return (
+        <Ionicons
+          name={hide ? "eye-off-sharp" : "eye-sharp"}
+          size={24}
+          color="white"
+        />
+      );
+  }
+};
 
+const AccountInfo = () => {
+  const [hideBalance, setHideBalance] = useState(false);
+
+  const toggleHideBalance = () => setHideBalance((prev) => !prev);
+
+  const renderItem = ({ item }: { item: { title: string; icon?: string } }) => {
     return (
       <Pressable
-        onPress={() => console.log(`Pressed: ${item.title}`)}
+        onPress={() => {
+          if (item.icon === "balance") {
+            toggleHideBalance();
+          }
+        }}
         style={({ pressed }) => [
           styles.itemContainer,
           pressed ? styles.itemPressed : styles.itemNormal,
         ]}
       >
         <View style={styles.itemContent}>
-          {iconComponent}
+          <IconComponent icon={item.icon} hide={hideBalance} />
           <Text style={styles.itemText}>{item.title}</Text>
         </View>
       </Pressable>
@@ -52,7 +58,7 @@ const AccountInfo = () => {
           type="title"
           style={{ marginTop: 12, fontSize: 20, color: "white" }}
         >
-          $50,000
+          {!hideBalance ? "$50,000" : "****"}
         </ThemedText>
       </View>
       <View style={styles.listContainer}>

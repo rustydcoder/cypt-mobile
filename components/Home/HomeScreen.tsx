@@ -9,13 +9,8 @@ import { transactions } from "./data";
 const HomeScreen = () => {
   return (
     <ThemedView style={styles.container} safe>
-      {/* User image and Name with plus button */}
       <WelcomeSection />
-
-      {/* GREEN CARD */}
       <AccountInfo />
-
-      {/* LIST OF TRANSACTIONS */}
       <TransactionList transactions={transactions} />
     </ThemedView>
   );
