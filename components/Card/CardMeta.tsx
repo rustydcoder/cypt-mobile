@@ -63,7 +63,7 @@ const CardMeta = ({ meta }: CardMetaProps) => {
               {meta.dailyLimit.toLocaleString()}
             </ThemedText>
           </View>
-          <Divider />
+          <Divider color={borderColor} />
           <View style={{ paddingHorizontal: 8 }}>
             <ThemedText>Daily limit</ThemedText>
           </View>
