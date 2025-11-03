@@ -27,5 +27,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     paddingBottom: 0,
+    elevation: 2,
   },
 });

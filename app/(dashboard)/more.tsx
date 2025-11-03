@@ -1,14 +1,8 @@
+import MoreScreen from "@/components/More/MoreScreen";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
 
 const more = () => {
-  return (
-    <View>
-      <Text>more</Text>
-    </View>
-  );
+  return <MoreScreen />;
 };
 
 export default more;
-
-const styles = StyleSheet.create({});
